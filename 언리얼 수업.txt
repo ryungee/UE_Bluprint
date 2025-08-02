@@ -83,6 +83,120 @@ Event Tick: 매 프레임 이벤트 발생
 
 
 
+<3회차>
+깃허브 로그인 방법
+: 파일 - 옵션 - 어카운트 - (지메일 로그인)
+ .gitignore :  삭제 불가
+- 유니티 취업 - 간단한 게임이라도 출시 경험 무조건 있어야 함, AI 활용 경험
+  BP 에디터에서 시선 움직이기 - 마우스 오른쪽 클릭
+*디폴트 씬 추가하기 - 추가 - 씬컴포넌트
+
+메시
+- 머티리얼(재질)
+- 컴퓨터는 2진법으로 숫자, 문자, 소리, 색상(RGBA) 표현
+- PBR: 물리기반렌더링 - 매끄러운 정도, 금속성 등
+- RYU Russell 러셀 youtube 찾아보기
+- 게임잡, 인디터
+- 회사 리스트업
+
+
+
+- 스테틱메시: 고정
+- 스켈레탈메시: 움직임
+
+콘텐츠 - 새폴더
+- Blueprints, Materials, Meshes
+
+머티리얼 만들기
+- @쉐이더 코드: 계산 多/ 오래걸림
+- 콘텐츠 드로어 - 우 클릭 - 머티리얼 - M_UFO 생성
+- 베이스컬러, 메탈릭(금속성 0~1), 러프니스(거칠기 0~1:거칠다) 설정 후 저장
+
+우클릭 -  vectorParameter 생성 - Color -  더블클릭해서 색상 변경(노랑) - 맨 위 핀 연결- 적용 - 저장: 인스턴스 가서 글로벌 벡터 파람 체크하고 칼라 파라미터 변경 가능
+
+머티리얼 인스턴스 생성: MI_UFO(머티리얼 직접 추가보다 인스턴스 추가가 경제적)
+
+<설명>
+- 변수: MI - 컬러, hp, speed 등. runtime 중 변경 가능. 
+- 상수: M - 아이디 등. 변경 X. 
+- vector(자료형:datatype. RGBA - 4개 값)
+
+우클릭 -  scalar Parameter 생성 - Metalic - 메탈릭과 연결
+
+메시 디테일에서 머티리얼 변경(MI)
+블루프린트 - 캐릭터 - BP_Player
+
+콘텐츠드로어에서  SM_UFO - 스켈레탈메시로 변환 클릭
+
+캐릭터에서 스켈레탈메시에셋 적용
+BP_Player - shape: 4.,4.
+
+
+게임모드: 게임 규칙 
+- UFO: 조종
+- 플레이어 컨트롤러: 입력 -> 폰
+
+액터 -> 폰 -> 캐릭터
+Enhanced Input: 향상된 입력
+
+게임모드 만들기
+- 블루프린트클래스 - 게임모드 BP_GameMode
+- 디폴트 폰 클래스: 플레이 시작 시 
+- 클래스
+
+
+프로젝트 세팅 - 맵&모드에서 게임모드 변경:  BP_GameMode 
+
+카메라 추가@BP_Player - 컴포넌트
+
+입력
+- @BP_Player - 이벤트 그래프 - 키보드 입력 1 - 핀 연결
+입력 매핑 컨텍스트 -  IMC_Player
+
+
+
+Ctrl_Shift_s  all 저장
+
+
+Event BeginPlay 
+Get Controller
+Cast To PlayerController
+
+Triggered: 활성화중 - 누르고 있을 때
+Started: 활성화 시작되었을때
+Ongoing: 조건부 started 부터 몇 초 후
+Canceled 취소(다른 입력 들어올 때 취소해버릴떄)
+Completed (누르다가)뗐을때
+
+
+GetActorForwardVector 내 앞방향 + 부정
+GetActorRightVector 내 옆방향 + 부정
+
+IA_MOVE:  WSAD 추가(Action Value)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
